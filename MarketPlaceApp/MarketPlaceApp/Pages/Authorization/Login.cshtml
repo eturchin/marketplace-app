@@ -1,0 +1,19 @@
+﻿@page
+@model MarketPlace.Pages.Authorization.LoginModel
+@{
+    ViewData["Title"] = "LogIn";
+}
+
+<h4 class="display-6" align="center">LogIn</h4>
+
+<form method="post" class="center-form">
+    <div>
+        <label for="Input_Login">Login</label>
+        <input type="text" class="form-control" id="Input_Login" name="Login">
+    </div>
+    <div>
+        <label for="Input_Password">Password</label>
+        <input type="password" class="form-control" id="Input_Password" name="Password">
+    </div>
+    <button type="submit" class="btn btn-primary center">Login</button>
+</form>

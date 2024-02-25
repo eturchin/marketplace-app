@@ -1,0 +1,41 @@
+html { font-size: 14px; }
+
+@media (min-width: 768px) {
+    html { font-size: 16px; }
+}
+
+html {
+    min-height: 100%;
+    position: relative;
+}
+
+body { margin-bottom: 60px; }
+
+a.disabled {
+    pointer-events: none;
+    color: grey;
+    text-decoration: none;
+}
+
+.center {
+    display: block;
+    margin: 0 auto;
+    margin-top: 10px;
+    text-align: center;
+}
+
+label {
+    display: block;
+    text-align: center;
+}
+
+input {
+    text-align: center;
+    align-items: center;
+    align-content: center;
+}
+
+.center-form {
+    margin: 0 auto;
+    width: 50%;
+}

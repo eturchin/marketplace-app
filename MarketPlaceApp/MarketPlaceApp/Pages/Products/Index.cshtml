@@ -1,0 +1,58 @@
+﻿@page
+@model MarketPlace.Pages.Products.IndexModel
+
+<h4 class="display-6" align="center">Products List</h4>
+
+<form method="get">
+    <div style="align-items: center; display: flex;">
+            <label for="sortOrder" class="mr-2" style="width: 70px;">Sort by:</label>
+            <div style="margin-right: 10px; width: 100px;">
+                <select asp-for="SortOrder" class="form-control" id="sortOrder">
+                    <option value="name" selected>@Html.DisplayNameFor(model => model.ProductsDto[0].Name)</option>
+                    <option value="price">@Html.DisplayNameFor(model => model.ProductsDto[0].Price)</option>
+                    <option value="quantity">@Html.DisplayNameFor(model => model.ProductsDto[0].Quantity)</option>
+                </select>
+            </div>
+        <button type="submit" class="btn btn-primary" style="width: 100px; margin-right: 10px;">Sort</button>
+        <label for="categorySelect" class="mr-2" style="width: 70px; margin-right: 10px;">Category:</label>
+        <div style="margin-right: 10px; width: 150px;">
+            <select asp-for="categorySelect" name="category" id="categorySelect" class="form-control">
+                <option value="">All</option>
+                @foreach (var category in Model.Categories)
+                {
+                    <option value="@category.Name">@category.Name</option>
+                }
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width: 100px; margin-right: 10px;">Filter</button>
+    </div>
+</form>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Quantity, PCS</th>
+        <th>Description</th>
+        <th>Price, $</th>
+    </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model.ProductsDto)
+    {
+        <tr>
+            <th>@product.Name</th>
+            <td>@product.Quantity</td>
+            @if (product.Description.Length > 100)
+            {
+                <td>@(product.Description[..100])...</td>
+            }
+            else
+            {
+                <td>@product.Description</td>
+            }
+            <td>@product.Price</td>
+        </tr>
+    }
+    </tbody>
+</table>
